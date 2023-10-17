@@ -1,13 +1,14 @@
-FROM golang:1.21.1
+FROM golang:1.19
 
-WORKDIR /app
+WORKDIR /app/server
 
-COPY go.mod go.sum ./
+COPY . /app/server/
 
 RUN go mod download
+RUN go get github.com/tomiok/grpc-test-wishlist/proto
 
-COPY /client/main.go ./
+RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
 
 EXPOSE 50051
 
-CMD ["go", "main.go"]
+CMD ["/docker-gs-ping"]
