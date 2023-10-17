@@ -10,4 +10,4 @@ COPY /server/main.go ./
 
 EXPOSE 50051
 
-CMD ["golang" ,"main.go"]
+RUN go build -o /app cmd/main.go
