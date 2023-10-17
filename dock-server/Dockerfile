@@ -10,4 +10,4 @@ COPY /server/main.go ./
 
 EXPOSE 50051
 
-CMD ["go", "main.go"]
+CMD ["go run main.go"]
