@@ -8,6 +8,8 @@ RUN go mod download
 
 COPY /server/main.go ./
 
+RUN CGO_ENABLED=0 GOOS=linux go build -o /servidor-docker
+
 EXPOSE 50051
 
-RUN go build -o /app app/main.go
+CMD ["/servidor-docker"]
