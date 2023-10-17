@@ -10,4 +10,4 @@ COPY /server/main.go ./
 
 EXPOSE 50051
 
-RUN go build -o /app cmd/main.go
+RUN go build -o /app app/main.go
